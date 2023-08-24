@@ -78,10 +78,10 @@ export default function AddDataForm(props) {
             style={{marginTop:"10px"}}
             placeholder="Pick one"
             data={[
-              { value: 'smartphone', label: 'Smartphone' },
-              { value: 'shoes', label: 'Shoes' },
-              { value: 'shirt', label: 'Shirt' },
-              { value: 'laptop', label: 'Laptop' },
+              { value: 'kursi', label: 'Kursi' },
+              { value: 'lampu', label: 'Lampu' },
+              { value: 'almari', label: 'Almari' },
+              { value: 'meja', label: 'Meja' },
             ]}
             {...form.getInputProps('category')}
           />

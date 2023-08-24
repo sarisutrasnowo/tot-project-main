@@ -1,4 +1,4 @@
-import { editProduct } from "@/common/query/product";
+import { editFood } from "@/common/query/food";
 import { Button, Group, Modal, Select, TextInput, Textarea } from "@mantine/core";
 import { useForm } from '@mantine/form';
 import { useMutation } from "@tanstack/react-query";
@@ -9,7 +9,7 @@ const handleValidateForm = (data, field) => {
   return (data === '' || data === null ? `${field} must filled` : null)
 }
 
-export default function EditDataForm(props) {
+export default function editDataFormFood(props) {
   const {isOpen} = props
   const form = useForm({
     initialValues: {
@@ -37,7 +37,7 @@ export default function EditDataForm(props) {
     form.reset();
   }
 
-  const { mutate, isLoading } = useMutation(()=>editProduct(props.detailData.id, form.values), {
+  const { mutate, isLoading } = useMutation(()=>editFood(props.detailData.id, form.values), {
     onSuccess: (response) => {
       if(response.status === 200) {
         handleCloseModal();
@@ -65,20 +65,20 @@ export default function EditDataForm(props) {
         onClose={handleCloseModal}
         size="md"
         radius="md"
-        title="Edit Product"
+        title="Edit Food"
       >
        <form onSubmit={form.onSubmit(() => mutate())}>
           <TextInput
             withAsterisk
             label="Title"
-            placeholder="Input your title product"
+            placeholder="Input your title food"
             {...form.getInputProps('title')}
           />
           <Textarea
             style={{marginTop:"10px"}}
             withAsterisk
             label="Description"
-            placeholder="Input your description product"
+            placeholder="Input your description food"
             {...form.getInputProps('description')}
           />
           <Select
@@ -87,10 +87,9 @@ export default function EditDataForm(props) {
             style={{marginTop:"10px"}}
             placeholder="Pick one"
             data={[
-              { value: 'kursi', label: 'Kursi' },
-              { value: 'lampu', label: 'Lampu' },
-              { value: 'almari', label: 'Almari' },
-              { value: 'meja', label: 'Meja' },
+              { value: 'snack', label: 'Snack' },
+              { value: 'makanan berat', label: 'Makanan berat' },
+              { value: 'kue', label: 'Kue' },
             ]}
             {...form.getInputProps('category')}
           />

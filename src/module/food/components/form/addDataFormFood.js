@@ -8,7 +8,7 @@ const handleValidateForm = (data, field) => {
   return (data === '' || data === null ? `${field} must filled` : null)
 }
 
-export default function addDataFormFood(props) {
+export default function AddDataFormFood(props) {
   const form = useForm({
     initialValues: {
       name: '',

@@ -9,7 +9,7 @@ const handleValidateForm = (data, field) => {
   return (data === '' || data === null ? `${field} must filled` : null)
 }
 
-export default function editDataFormFood(props) {
+export default function EditDataFormFood(props) {
   const {isOpen} = props
   const form = useForm({
     initialValues: {
